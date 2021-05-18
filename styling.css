@@ -1,0 +1,9 @@
+.keyboard {
+    width: 75px;
+    height: auto;
+}
+
+.fill {
+    width: 100%;
+    white-space: nowrap;
+}
