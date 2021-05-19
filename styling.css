@@ -5,5 +5,22 @@
 
 .fill {
     width: 100%;
-    white-space: nowrap;
+    -webkit-box-sizing: border-box;
+    height: 70px;
+    padding: 20px;
+    resize: none;
+}
+
+
+.color {
+    background-color: #BDFFA4;
+}
+
+.footer {
+    bottom: 0;
+    position: absolute;
+  }
+
+.height {
+    height: 100px;
 }

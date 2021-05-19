@@ -8,12 +8,8 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="styling.css">
 </head>
-<body>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <img class="keyboard" src="keyboard.png" alt="keyboard_logo">
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+<body >
+  <nav class="navbar navbar-expand-lg navbar-light height bg-light">
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav ml-auto">
           </ul>
@@ -22,8 +18,9 @@
         <div class="container">
           <div class="row">
             <div class="col">
-              <div class="col-sm-12 text-center my-5 ">
-                <p class="h1 text-black"> Speed Typing Test </p>
+              <div class="col-sm-12 text-center d-inline-block my-5 ">
+                <p class="h1 text-black"> Typing Speed Test </p>
+                <img class="keyboard" src="keyboard.png" alt="keyboard_logo">
               </div>
             </div>
           </div>
@@ -32,7 +29,7 @@
             <div class="col-md-4 col-sm-8">
               <!-- First card goes here -->
               <div class="card bg-light rounded">
-                <div class="card-title h3 font-weight-bold text-center"> 
+                <div class="card-title h3 font-weight-light text-center"> 
                   Errors
                 </div>
                 <div id="error_text" class="card-body h1 text-center">
@@ -42,7 +39,7 @@
             </div>
             <div class="col-md-4 col-sm-8">
               <div class="card bg-light rounded">
-                <div class="card-title h3 font-weight-bold text-center"> Time Left
+                <div class="card-title h3 font-weight-light text-center"> Time Left
                 </div>
                 <div id="timer_text" class="card-body h1 text-center">
                   60
@@ -51,7 +48,7 @@
             </div>
             <div class="col-md-4 col-sm-8">
               <div class="card bg-light rounded">
-                <div class="card-title h3 font-weight-bold text-center"> WPM
+                <div class="card-title h3 font-weight-light text-center"> WPM
                 </div>
                 <div id="wpm_text" class="card-body h1 text-center">
                   0
@@ -59,32 +56,66 @@
               </div>
             </div>
 
+            <div id="card_result"  class="d-none justify-content-center container">
+            <div class="col-md-offset-1 my-5">
+              <div class=" card shadow bg-light rounded">
+                <div class="card-title h1 text-black font-weight-light text-center">
+                  Test Completed:
+                </div>
+                <div class="card-body h5 text-center">
+                  <p id="accuracy_text" class="text-black">
+                    Accuracy: 
+                  </p>
+                </div>
+                <div class="card-body h5 text-center">
+                  <p id="words_typed" class="text-black">
+                    Words Typed:
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
             <!-- text display -->
-            <div class="col-md-8 my-5 col-sm-10">
-              <div class="card bg-secondary rounded">
+            <div class="col-md-11 my-5 col-sm-10">
+              <div id="card_reader" class="shadow card bg-l rounded">
                 <div class="card-title h3 font-weight-bold text-center">
                 </div>
-                <div class="card-body h1 text-center">
-                  <p id="reader" class="text-white">
-                  Click on the textbox to start the typing test
+                <div class="card-body h2 font-weight-normal text-center">
+                  <p id="reader" class="text-black">
+                  Click on the textbox to start!
                   </p>
                 </div>
               </div>
             </div>
 
             <div class="col-md-8 my-2 col-sm-10">
-              <div class="card bg-secondary bg-light rounded">
-                <div class="card-title h3 font-weight-bold text-center">
-                </div>
-                <div class="card-body text-center">
-                  <textarea onkeypress="{currentText()}" onclick="{nextText()}" id="input_box"></textarea>
-                </div>
+                <div class=" card-body text-center">
+                  <textarea onpaste="return false" wrap="off" placeholder="start typing here!" class="shadow fill custom_look" oninput="{currentText()}" onclick="{nextText(), startTimer(); this.onclick=null;}" id="input_box"></textarea>
               </div>
             </div>
+
+            <div class="col-md-8 my-2 col-sm-10">
+              <button class="btn btn-primary btn-lg float-right" onclick="{resetAll()}" type="submit">Restart</button>
+            </div>
+
+
+
+           
+
 
     <script src="typing.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </body>
+
+<div class="navbar-expand-lg nav-fill w-100 navbar-light bg-light footer navbar-fixed-bottom">
+  <div class="container">
+  <footer>
+    <p class="h5 font-weight-light text-black"> Built using JavaScript, CSS, HTML, and Bootstrap </p>
+  </footer>
+</div>
+</div>
+
 </html>
